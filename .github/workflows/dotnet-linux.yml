@@ -1,0 +1,31 @@
+name: Linux (dotnet build and test)
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  os-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version:  |
+            6.0.x
+            7.0.x
+      - name: Restore dependencies
+        run: |
+          dotnet restore ./src/CSharp/Blazor/EasyMicroservices.UI.Places.Blazor.sln
+          dotnet restore ./src/CSharp/Cores/EasyMicroservices.UI.Places.Core.sln
+      - name: Build
+        run: |
+          dotnet build ./src/CSharp/Blazor/EasyMicroservices.UI.Places.Blazor.sln --no-restore
+          dotnet build ./src/CSharp/Cores/EasyMicroservices.UI.Places.Core.sln --no-restore
+      - name: Test 
+        run: |
+          dotnet test ./src/CSharp/Blazor/EasyMicroservices.UI.Places.Blazor.sln --no-build --verbosity normal
+          dotnet test ./src/CSharp/Cores/EasyMicroservices.UI.Places.Core.sln --no-build --verbosity normal

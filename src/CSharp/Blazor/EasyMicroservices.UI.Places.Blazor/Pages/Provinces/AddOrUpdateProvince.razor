@@ -1,0 +1,50 @@
+﻿@page "/AddOrUpdateProvince"
+@using EasyMicroservices.UI.Places.ViewModels.Provinces;
+@using MudBlazor
+@using global::Places.GeneratedServices;
+@inject AddOrUpdateProvinceViewModel viewModel;
+
+<MudStack>
+    <MudPaper Class="pa-4">
+        <MudStack Spacing="4">
+            <MudTextField @bind-Value="viewModel.Name" Label="Name" Variant="Variant.Text"></MudTextField>
+            @if (viewModel.Countries is not null)
+            {
+                <MudSelect T="long" @bind-Value="viewModel.SelectedCountryId" Label="Province" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in viewModel.Countries)
+                    {
+                        <MudSelectItem Value="@item.Id">@item.Name</MudSelectItem>
+                    }
+                </MudSelect>
+            }
+        </MudStack>
+    </MudPaper>
+    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save" Color="Color.Info" Disabled="viewModel.IsBusy" OnClick="(arg) => viewModel.SaveCommand.Execute(null)">
+        @if (viewModel.IsBusy)
+        {
+            <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+            <MudText Class="ms-2">Saving</MudText>
+        }
+        else
+        {
+            <MudText>Save</MudText>
+        }
+    </MudButton>
+</MudStack>
+
+@code {
+    public AddOrUpdateProvinceViewModel ViewModel
+    {
+        get
+        {
+            return viewModel;
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        _ = viewModel.LoadConfig();
+        viewModel.BindPropertyChanged(StateHasChanged);
+        return base.OnInitializedAsync();
+    }
+}
