@@ -1,0 +1,40 @@
+﻿@page "/AddOrUpdateCountry"
+@using EasyMicroservices.UI.Places.ViewModels.Countries;
+@using MudBlazor
+@using global::Places.GeneratedServices;
+@inject AddOrUpdateCountryViewModel viewModel;
+
+<MudStack>
+    <MudPaper Class="pa-4">
+        <MudStack Spacing="4">
+            <MudTextField @bind-Value="viewModel.Name" Label="Name" Variant="Variant.Text"></MudTextField>
+        </MudStack>
+    </MudPaper>
+    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Save" Color="Color.Info" Disabled="viewModel.IsBusy" OnClick="(arg) => viewModel.SaveCommand.Execute(null)">
+        @if (viewModel.IsBusy)
+        {
+            <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+            <MudText Class="ms-2">Saving</MudText>
+        }
+        else
+        {
+            <MudText>Save</MudText>
+        }
+    </MudButton>
+</MudStack>
+
+@code {
+    public AddOrUpdateCountryViewModel ViewModel
+    {
+        get
+        {
+            return viewModel;
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        viewModel.BindPropertyChanged(StateHasChanged);
+        return base.OnInitializedAsync();
+    }
+}

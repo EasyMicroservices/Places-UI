@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <Authors>EasyMicroservices</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.0.1</Version>
+    <Description>Places view model.</Description>
+    <Copyright>EasyMicroservices@gmail.com</Copyright>
+    <PackageTags>mvvm,viewmodel,viewmodels,modelviewviewmodel,ui,core,place,places,city,country,province,location</PackageTags>
+    <PackageProjectUrl>https://github.com/EasyMicroservices/Places-UI</PackageProjectUrl>
+    <LangVersion>latest</LangVersion>
+    <DocumentationFile>.\bin\$(Configuration)\$(TargetFramework)\EasyMicroservices.UI.Places.ViewModels.xml</DocumentationFile>
+    <RootNamespace>EasyMicroservices.UI.Places</RootNamespace>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EasyMicroservices.PlacesMicroservice.Clients" Version="0.0.0.2" />
+    <PackageReference Include="EasyMicroservices.UI.Cores.Mvvm" Version="0.0.0.7" />
+  </ItemGroup>
+
+</Project>
