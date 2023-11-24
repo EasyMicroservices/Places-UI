@@ -39,7 +39,7 @@ namespace EasyMicroservices.UI.Places.ViewModels.Countries
         public string SortColumnNames { get; set; }
         public ObservableCollection<CountryContract> Countries { get; set; } = new ObservableCollection<CountryContract>();
 
-        private async Task Search()
+        public async Task Search()
         {
             var filteredResult = await _countryClient.FilterAsync(new FilterRequestContract()
             {

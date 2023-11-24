@@ -39,7 +39,7 @@ namespace EasyMicroservices.UI.Places.ViewModels.Provinces
         public string SortColumnNames { get; set; }
         public ObservableCollection<ProvinceContract> Provinces { get; set; } = new ObservableCollection<ProvinceContract>();
 
-        private async Task Search()
+        public async Task Search()
         {
             var filteredResult = await _provinceClient.FilterAsync(new FilterRequestContract()
             {
