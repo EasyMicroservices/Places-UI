@@ -39,7 +39,7 @@ namespace EasyMicroservices.UI.Places.ViewModels.Cities
         public string SortColumnNames { get; set; }
         public ObservableCollection<CityContract> Cities { get; set; } = new ObservableCollection<CityContract>();
 
-        private async Task Search()
+        public async Task Search()
         {
             var filteredResult = await _cityClient.FilterAsync(new FilterRequestContract()
             {
