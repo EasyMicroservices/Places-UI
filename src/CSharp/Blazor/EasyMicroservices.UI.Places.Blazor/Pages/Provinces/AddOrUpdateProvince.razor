@@ -10,7 +10,7 @@
             <MudTextField @bind-Value="viewModel.Name" Label="Name" Variant="Variant.Text"></MudTextField>
             @if (viewModel.Countries is not null)
             {
-                <MudSelect T="long" @bind-Value="viewModel.SelectedCountryId" Label="Province" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+                <MudSelect T="long" @bind-Value="viewModel.SelectedCountryId" Label="Country" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
                     @foreach (var item in viewModel.Countries)
                     {
                         <MudSelectItem Value="@item.Id">@item.Name</MudSelectItem>
