@@ -17,8 +17,8 @@ namespace EasyMicroservices.UI.Places.ViewModels.Cities
             SearchCommand.Execute(null);
         }
 
-        public ICommandAsync SearchCommand { get; set; }
-        public ICommandAsync DeleteCommand { get; set; }
+        public IAsyncCommand SearchCommand { get; set; }
+        public IAsyncCommand DeleteCommand { get; set; }
 
         public Action<CityContract> OnDelete { get; set; }
         readonly CityClient _cityClient;
