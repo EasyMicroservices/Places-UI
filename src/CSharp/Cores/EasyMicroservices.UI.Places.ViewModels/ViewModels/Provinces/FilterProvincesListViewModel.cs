@@ -17,8 +17,8 @@ namespace EasyMicroservices.UI.Places.ViewModels.Provinces
             SearchCommand.Execute(null);
         }
 
-        public ICommandAsync SearchCommand { get; set; }
-        public ICommandAsync DeleteCommand { get; set; }
+        public IAsyncCommand SearchCommand { get; set; }
+        public IAsyncCommand DeleteCommand { get; set; }
 
         public Action<ProvinceContract> OnDelete { get; set; }
         readonly ProvinceClient _provinceClient;
