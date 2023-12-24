@@ -88,19 +88,9 @@ namespace EasyMicroservices.UI.Places.ViewModels.Provinces
         {
             var items = await _countryClient.GetAllByLanguageAsync(new GetByLanguageRequestContract()
             {
-                Language = "fa-IR"
+                LanguageShortName = "fa-IR"
             }).AsCheckedResult(x => x.Result);
             Countries = items;
-        }
-
-        public override Task OnError(Exception exception)
-        {
-            return base.OnError(exception);
-        }
-
-        public override Task DisplayFetchError(ServiceContracts.ErrorContract errorContract)
-        {
-            return base.DisplayFetchError(errorContract);
         }
 
         public async Task UpdateProvince()

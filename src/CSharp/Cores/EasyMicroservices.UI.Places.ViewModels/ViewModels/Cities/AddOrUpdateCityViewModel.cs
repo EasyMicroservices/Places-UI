@@ -85,16 +85,6 @@ namespace EasyMicroservices.UI.Places.ViewModels.Cities
             Clear();
         }
 
-        public override Task OnError(Exception exception)
-        {
-            return base.OnError(exception);
-        }
-
-        public override Task DisplayFetchError(ServiceContracts.ErrorContract errorContract)
-        {
-            return base.DisplayFetchError(errorContract);
-        }
-
         public async Task UpdateCity()
         {
             await _citiyClient.UpdateChangedValuesOnlyAsync(new UpdateCityRequestContract()
@@ -128,7 +118,7 @@ namespace EasyMicroservices.UI.Places.ViewModels.Cities
         {
             var items = await _provinceClient.GetAllByLanguageAsync(new GetByLanguageRequestContract()
             {
-                Language = "fa-IR"
+                LanguageShortName = "fa-IR"
             }).AsCheckedResult(x=>x.Result);
             Provinces = items;
         }
