@@ -46,7 +46,6 @@ namespace EasyMicroservices.UI.Places.ViewModels.Cities
                 IsDeleted = false,
                 Index = Index,
                 Length = Length,
-                SortColumnNames = SortColumnNames
             }).AsCheckedResult(x => (x.Result, x.TotalCount));
 
             Cities.Clear();
@@ -66,16 +65,6 @@ namespace EasyMicroservices.UI.Places.ViewModels.Cities
             }).AsCheckedResult(x => x);
             Cities.Remove(contract);
             OnDelete?.Invoke(contract);
-        }
-
-        public override Task OnError(Exception exception)
-        {
-            return base.OnError(exception);
-        }
-
-        public override Task DisplayFetchError(ServiceContracts.ErrorContract errorContract)
-        {
-            return base.DisplayFetchError(errorContract);
         }
     }
 }

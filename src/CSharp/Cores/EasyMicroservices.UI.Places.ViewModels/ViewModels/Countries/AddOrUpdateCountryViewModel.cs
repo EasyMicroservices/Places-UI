@@ -68,16 +68,6 @@ namespace EasyMicroservices.UI.Places.ViewModels.Countries
             Clear();
         }
 
-        public override Task OnError(Exception exception)
-        {
-            return base.OnError(exception);
-        }
-
-        public override Task DisplayFetchError(ServiceContracts.ErrorContract errorContract)
-        {
-            return base.DisplayFetchError(errorContract);
-        }
-
         public async Task UpdateCountry()
         {
             await _citiyClient.UpdateChangedValuesOnlyAsync(new UpdateCountryRequestContract()

@@ -4,7 +4,7 @@
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <Authors>EasyMicroservices</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.0.3</Version>
+    <Version>0.0.0.4</Version>
     <Description>Places view model.</Description>
     <Copyright>EasyMicroservices@gmail.com</Copyright>
     <PackageTags>mvvm,viewmodel,viewmodels,modelviewviewmodel,ui,core,place,places,city,country,province,location</PackageTags>
@@ -19,8 +19,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyMicroservices.PlacesMicroservice.Clients" Version="0.0.0.3" />
-    <PackageReference Include="EasyMicroservices.UI.Cores.Mvvm" Version="0.0.0.9" />
+    <PackageReference Include="EasyMicroservices.PlacesMicroservice.Clients" Version="0.0.0.5" />
+    <PackageReference Include="EasyMicroservices.UI.Cores.Mvvm" Version="0.0.0.13" />
   </ItemGroup>
 
 </Project>
